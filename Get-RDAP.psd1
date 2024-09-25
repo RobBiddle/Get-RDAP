@@ -30,7 +30,7 @@ CompanyName = 'Unknown'
 Copyright = '(c) Robert D. Biddle. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'RDAP client PowerShell cmdlet'
+Description = 'Registration Data Access Protocol (RDAP) lookups via PowerShell'
 
 # Minimum version of the PowerShell engine required by this module
 PowerShellVersion = '5.1'
