@@ -2,6 +2,8 @@
 
 `Get-RDAP` is a PowerShell cmdlet that retrieves Registration Data Access Protocol (RDAP) information for domain names, IP addresses, and Autonomous System Numbers (ASNs).
 
+If you'd prefer WHOIS information, you can use the `Get-WHOIS` cmdlet, which is available here: <https://github.com/RobBiddle/Get-WHOIS>
+
 ## Installation
 
 To install the `Get-RDAP` cmdlet, you can use the following command:
