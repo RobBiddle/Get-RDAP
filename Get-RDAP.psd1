@@ -9,10 +9,10 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-# RootModule = ''
+RootModule = 'Get-RDAP.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.2'
+ModuleVersion = '0.0.4'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -24,7 +24,7 @@ GUID = '2f8bff10-a2bc-4b21-8e22-186f27d885a4'
 Author = 'Robert D. Biddle'
 
 # Company or vendor of this module
-CompanyName = 'Unknown'
+# CompanyName = 'Unknown'
 
 # Copyright statement for this module
 Copyright = '(c) Robert D. Biddle. All rights reserved.'
@@ -51,7 +51,7 @@ PowerShellVersion = '5.1'
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-# RequiredModules = @()
+RequiredModules = @()
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -95,7 +95,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        # Tags = @()
+        Tags = @('RDAP', 'WHOIS', 'Domain', 'DomainName', 'TLD', 'IP', 'AutonomousSystem', 'AutonomousSystemNumber', 'ASN', 'Entity', 'Registration', 'Lookup', 'RDAP.org', 'ICANN', 'IANA', 'ISC', 'Expiration', 'Expiry')
 
         # A URL to the license for this module.
         LicenseUri = 'https://github.com/RobBiddle/Get-RDAP/blob/main/LICENSE'
