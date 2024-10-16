@@ -89,6 +89,22 @@ redacted        : {@{name=; reason=; prePath=$.entities[?(@.handle=='LG1196-ORG'
                   prePath=$.entities[?(@.handle=='AR15783-RIPE')].vcardArray[1][?(@[0]=='e-mail')]; method=removal}}
 ```
 
+### Advanced Usage
+
+#### Resolve DNS for a domain, pass the returned IPAddress to Get-RDAP and then Select the CIDR Block associated with each Name Server
+
+CIDR (Classless Inter-Domain Routing) can make it difficult to determine which IP addresses belong to the same IP Network.
+Determining which IP addresses belong to the same IP Network can be useful for identifying potential security risks or for troubleshooting network issues.
+The following example demonstrates how to resolve the IP addresses for a domain, pass the IP addresses to `Get-RDAP`, and then return the CIDR block associated with each IP address.
+
+```powershell
+(Resolve-DnsName amazon.com).IPAddress | % {(get-rdap -IPAddress $_).cidr0_cidrs | % {"$($_.v4prefix)/$($_.length)"}}
+205.251.192.0/18
+54.224.0.0/11
+52.84.0.0/14
+52.88.0.0/13
+```
+
 ## Parameters
 
 - `-Domain`: Specifies the domain name for which to retrieve RDAP information.
