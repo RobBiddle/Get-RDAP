@@ -1,4 +1,5 @@
 # Get-RDAP
+![PowerShell Gallery Downloads](https://img.shields.io/powershellgallery/dt/Get-RDAP)
 
 `Get-RDAP` is a PowerShell cmdlet that retrieves Registration Data Access Protocol (RDAP) information for domain names, IP addresses, and Autonomous System Numbers (ASNs).
 
