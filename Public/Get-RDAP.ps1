@@ -86,7 +86,25 @@ function Get-RDAP {
     $Url = "https://rdap.org/$Type/$Object"
 
     # Send the HTTP request
-    $Response = Invoke-RestMethod -Uri $Url
+    try {
+        $Response = Invoke-RestMethod -Uri $Url
+    } catch {
+        # If 404 and $Type is 'domain', parse the domain, if it is a subdomain, try the parent domain
+        if ($_.Exception.Response.StatusCode -eq 404 -and $Type -eq 'domain') {
+            $DomainParts = $Domain.Split('.')
+            if ($DomainParts.Count -gt 2) {
+                Write-Warning "RDAP info for Domain $Domain was not found. Trying parent domain."
+                # Recursively try the parent domain until a response is received, with a maximum of 10 attempts
+                for ($i = 1; $i -lt $DomainParts.Count -and $i -lt 10; $i++) {
+                    $ParentDomain = $DomainParts[$i..$DomainParts.Count] -join '.'
+                    $Response = Get-RDAP -Domain $ParentDomain
+                    if ($Response) {
+                        break
+                    }
+                }
+            }
+        }
+    }
 
     # Return the response
     $Response
